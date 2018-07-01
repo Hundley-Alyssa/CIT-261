@@ -1,0 +1,9 @@
+.navButton {
+    background-color: skyblue;
+    color: white;
+}
+
+.navButton:hover {
+    background-color: purple;
+    color: orange;
+}
