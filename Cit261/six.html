@@ -24,8 +24,7 @@
         <h1>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</h1>
         
         <h2>Create, Append, Insert, Remove</h2>
-        <button onclick="create()">Create/Append Example</button>
-        <p id="create"></p>
+        
 
         <button onclick="insert()">Insert Example</button>
         <p id="insert"></p>
@@ -39,7 +38,25 @@
         <p id="remove"></p>
         
         
-     
+        <div class="col-md-12">
+					<button onclick="domTestAddP('This is New')">Add paragraph Element</button><br /><br />
+
+					<label>Enter YouTube Hash: </label> <input id="YouTubeId" type="text" value="hM9h1wN4rfU"><br />
+					<button onclick="domTestAddYouTube(document.getElementById('YouTubeId').value)">Add YouTube Video</button><br /><br />
+				</div>
+                <div class="col-md-12">
+					<div id="div1">
+						<p id="p1">If you click the button above to add a new paragraph...</p>
+						<p id="p2">This list will grow!</p>
+					</div>
+					<div id="videoFrame1">
+					</div>
+				<div class="row">
+					<div class="col-md-12"><hr /><br/><br/></div>
+				</div>
+                </div>
+
+  
     </main>
 
     <footer>
