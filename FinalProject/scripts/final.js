@@ -1,5 +1,5 @@
 function hideMonths() {
-    var x = document.getElementById("hideMonths");
+    var x = document.getElementById("dateDiv");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -42,3 +42,37 @@ var g = new Date();
 var year = g.getFullYear();
 
 document.getElementById("currentdate").innerHTML = dayOfWeek + ", " + dateNumber + " " + month + " " + year;
+
+
+
+
+function getHoro() {
+    var s = document.getElementById("signs");
+    var signName = s.options[s.selectedIndex].value;
+    var userId = '602478';
+    var apiKey = '1ee1dc3dc21e3ada45d7644d5d5e80b2';
+    var data = 'JSON Request Data';
+    var request = $.ajax({
+        url: "https://json.astrologyapi.com/v1/sun_sign_prediction/daily/"+signName,
+        method: "POST",
+        dataType:'json',
+        headers: {
+            "authorization": "Basic " + btoa(userId+":"+apiKey),
+            "Content-Type":'application/json'
+        },
+        data:JSON.stringify(data)
+    });
+    // Returns A promiss
+    return( request.then( function(resp){
+        return resp;
+    }, function(err){
+        return err;
+    }));
+    
+
+ health = resp.prediction.health;
+ 
+}
+
+
+
