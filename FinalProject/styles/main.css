@@ -1,3 +1,16 @@
+body{
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 3.5s;
+}
+@keyframes fadeInOpacity{
+    0%{opacity: 0;}
+    100%{
+        opacity: 1;
+    }
+}
 #header{
     margin-left: 10px;
 }
@@ -66,7 +79,7 @@ input{
     animation-duration: 40s;
     font-family: 'Amatic SC', cursive;
     font-size: 25px;
-    
+    transition: all .2s ease-in-out;
 }
 @keyframes submit{
      0%   {background-color: #97d3d3;}
@@ -78,6 +91,9 @@ input{
     90% {background-color: #cd8d71;}
     100%   {background-color: #97d3d3;}
 }
+input:hover{
+    transform: scale(1.1);
+}
 button{
     font-family: 'Amatic SC', cursive;
     height:30px;
@@ -85,8 +101,12 @@ button{
     font-size: 20px;
     background-color: #ee5f83;
     color: white;
+    transition: all .2s ease-in-out;
 }
-.horo{
+button:hover{
+    transform: scale(1.1);
+}
+#horo{
     display: none;
 }
 .returnedHoro{
@@ -99,15 +119,15 @@ button{
     padding: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-left: 10px;
     cursor: pointer;
     width: 100%;
+    height: auto;
+    background-color:#97d3d3;
 }
 .returnedHoro{
     font-family: 'Amatic SC', cursive;
     font-size: 2em;
     margin-top: 0px;
-    margin-left: 10px;
     margin-bottom: 0px;
     overflow: hidden;
     max-height: 0;
@@ -115,6 +135,6 @@ button{
 }
 
 .active, .collapsible:hover {
-    background-color: green;
+    background-color: #ee5f83;
 }
 
