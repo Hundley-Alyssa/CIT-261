@@ -1,18 +1,39 @@
+#header{
+    margin-left: 10px;
+}
+#header h1{
+    font-family: 'Caveat Brush', cursive;
+    font-size: 3.5em;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+#header p{
+    font-family: 'Amatic SC', cursive;
+    font-size: 2em;
+    padding: 0px;
+    margin: 0px;
+}
 #dateDiv {
     width: 100%;
-    padding: 50px 0;
+    padding-bottom: 10px;
     text-align: center;
-    background-color: lightblue;
-    margin-top: 20px;
-
+    background-color: #f7e3ea;
+    display: none;
 }
-
+#dateDiv h2{
+    font-family: 'Caveat Brush', cursive;
+    font-size: 2em;
+}
 #signsDiv{
     width: 100%;
-    padding: 50px 0;
+    padding-bottom: 10px;
     text-align: center;
-    background-color: lightblue;
-    margin-top: 20px;
+    background-color: #f7e3ea;
+    margin-top: 10px;
+}
+#signsDiv h2{
+    font-family: 'Caveat Brush', cursive;
+    font-size: 2em;
 }
 
 
@@ -40,7 +61,7 @@ input{
     border-style: solid;
     border-width: medium;
     border-color: white;
-    background-color: red;
+    background-color: #97d3d3;
     animation-name: submit;
     animation-duration: 40s;
     font-family: 'Amatic SC', cursive;
@@ -65,4 +86,25 @@ button{
     background-color: #ee5f83;
     color: white;
 }
-
+#horo{
+    display: none;
+}
+.returnedHoro{
+    background-color:#97d3d3;
+}
+.returnedHoro h3{
+    font-family: 'Caveat Brush', cursive;
+    color: white;
+    font-size: 2em;
+    padding: 0px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+     margin-left: 10px;
+}
+.returnedHoro p{
+    font-family: 'Amatic SC', cursive;
+    font-size: 2em;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}

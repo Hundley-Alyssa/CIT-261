@@ -1,12 +1,19 @@
-function hideMonths() {
+function hide() {
     var x = document.getElementById("dateDiv");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
+    console.log(x.style.display);
+    if (x.style.display === "block") {
         x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+    var y = document.getElementById("signsDiv");
+    console.log(x.style.display);
+    if (y.style.display === "none") {
+        y.style.display = "block";
+    } else {
+        y.style.display = "none";
     }
 }
-
 
 var d = new Date();
 var weekday = new Array(7);
@@ -51,8 +58,7 @@ function getHoro() {
     var signName = s.options[s.selectedIndex].value;
     var userId = '602478';
     var apiKey = '1ee1dc3dc21e3ada45d7644d5d5e80b2';
-    var data = 'JSON Request Data';
-    var request = $.ajax({
+   var request = $.ajax({
         url: "https://json.astrologyapi.com/v1/sun_sign_prediction/daily/"+signName,
         method: "POST",
         dataType:'json',
@@ -60,19 +66,118 @@ function getHoro() {
             "authorization": "Basic " + btoa(userId+":"+apiKey),
             "Content-Type":'application/json'
         },
-        data:JSON.stringify(data)
+        success: function(result) {
+            document.getElementById('sign').innerHTML = result.sun_sign;
+            document.getElementById('health').innerHTML = result.prediction.health;
+            document.getElementById('emotions').innerHTML = result.prediction.emotions;
+            document.getElementById('personal').innerHTML = result.prediction.personal_life;
+            document.getElementById('profession').innerHTML = result.prediction.profession;
+            document.getElementById('travel').innerHTML = result.prediction.travel;
+            document.getElementById('luck').innerHTML = result.prediction.luck;
+            
+        },
+        error: function(err) {
+            console.log(err);
+        }
     });
-    // Returns A promiss
-    return( request.then( function(resp){
-        return resp;
-    }, function(err){
-        return err;
-    }));
-    
-
- health = resp.prediction.health;
- 
+    var x = document.getElementById("horo");
+    console.log(x.style.display);
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
 }
+
+
+function dateSelect(){
+    var m = document.getElementById("months");
+    var month = m.options[m.selectedIndex].value;
+    var d = document.getElementById("dates");
+    var date = parseInt(d.options[d.selectedIndex].value);
+    var signName;
+    
+    console.log(month);
+    console.log(date);
+    
+    if ((month == "january" && date >= 20) || (month == "february" && date <= 18)){
+        signName = "aquarius";
+        }
+    else if ((month == "february" && date >= 19) || (month == "march" && date <= 20)){
+        signName = "pisces";
+        }
+    else if ((month == "march" && date >= 21) || (month == "april" && date <= 19)){
+        signName = "aries";
+        }
+    else if ((month == "april" && date >= 20) || (month == "may" && date <= 20)){
+        signName = "taurus";
+        }
+    else if ((month == "may" && date >= 21) || (month == "june" && date <= 20)){
+        signName = "gemini";
+        }
+    else if ((month == "june" && date >= 21) || (month == "july" && date <= 22)){
+        signName = "cancer";
+        }
+    else if ((month == "july" && date >= 23) || (month == "august" && date <= 22)){
+        signName = "leo";
+        }
+    else if ((month == "august" && date >= 23) || (month == "september" && date <= 22)){
+        signName = "virgo";
+        }
+    else if ((month == "september" && date >= 23) || (month == "october" && date <= 22)){
+        signName = "libra";
+        }
+    else if ((month == "october" && date >= 23) || (month == "november" && date <= 21)){
+        signName = "scorpio";
+        }
+    else if ((month == "november" && date >= 22) || (month == "december" && date <= 21)){
+        signName = "sagittarius";
+        }
+    else {
+        signName = "capricorn";
+        }
+    console.log(signName);
+    getHoroDate(signName);
+    
+    var x = document.getElementById("horo");
+    console.log(x.style.display);
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+
+function getHoroDate(signName) {
+    signName = signName;
+    var userId = '602478';
+    var apiKey = '1ee1dc3dc21e3ada45d7644d5d5e80b2';
+   var request = $.ajax({
+        url: "https://json.astrologyapi.com/v1/sun_sign_prediction/daily/"+signName,
+        method: "POST",
+        dataType:'json',
+        headers: {
+            "authorization": "Basic " + btoa(userId+":"+apiKey),
+            "Content-Type":'application/json'
+        },
+        success: function(result) {
+            document.getElementById('sign').innerHTML = result.sun_sign;
+            document.getElementById('health').innerHTML = result.prediction.health;
+            document.getElementById('emotions').innerHTML = result.prediction.emotions;
+            document.getElementById('personal').innerHTML = result.prediction.personal_life;
+            document.getElementById('profession').innerHTML = result.prediction.profession;
+            document.getElementById('travel').innerHTML = result.prediction.travel;
+            document.getElementById('luck').innerHTML = result.prediction.luck;
+            
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
+}
+
+
+
 
 
 

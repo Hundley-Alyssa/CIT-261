@@ -9,6 +9,7 @@
     <meta name="description" content="CIT 261">
     <link href="styles/main.css" rel="stylesheet">  
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
 </head>
 
 <body>
@@ -23,8 +24,10 @@
     
     
     <main>
-        <h1>Find your daily horoscope</h1>
-        <p id="currentdate">Date placeholder</p>
+        <div id="header">
+            <h1>Find your daily horoscope</h1>
+            <p id="currentdate">Date placeholder</p>
+        </div>
         
         
     <form>
@@ -45,16 +48,16 @@
                         <option value="capricorn">Capricorn</option>
                     </select>
                 <br><br>
-                <input onclick="getHoro()" type="submit">
+                <input onclick="getHoro(); return false;" type="submit">
                 <br><br>
-                <button onclick="hideMonths()">I don't know my sign</button>
+                <button onclick="hide(); return false;">I don't know my sign</button>
         </div>
         </form>
         <form>
         
         <div id="dateDiv"> 
             <h2>Select your birth date</h2>
-                    <select name="months">
+                    <select id="months">
                         <option value="janurary">January</option>
                         <option value="february">February</option>
                         <option value="march">March</option>
@@ -69,7 +72,7 @@
                         <option value="december">December</option>
                     </select>  
 
-                    <select name="dates">
+                    <select id="dates">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -103,26 +106,39 @@
                         <option value="31">31</option>
                     </select>
             <br><br>
-            <input type="submit">
+            <input type="submit" onclick="dateSelect(); return false;">
         </div>
         </form>
         
-        <div id="returnedHoro">
-        
-        <h3>Sign</h3>
-            <p></p>
-        <h3>Health</h3>
-            <p></p>
-        <h3>Emotions</h3>
-            <p></p>
-        <h3>Personal Life</h3>
-            <p></p>
-        <h3>Profession</h3>
-            <p></p>
-        <h3>Travel</h3>
-            <p></p>
-        <h3>Luck</h3>
-            <p></p>
+        <div id="horo">
+            <div class="returnedHoro">
+                <h3>Sign</h3>
+                <p id="sign"></p>
+            </div>
+            <div class="returnedHoro">
+                <h3>Health</h3>
+                <p id="health"></p>
+            </div>
+            <div class="returnedHoro">
+                <h3>Emotions</h3>
+                <p id="emotions"></p>
+            </div>
+            <div class="returnedHoro">
+                <h3>Personal Life</h3>
+                <p id="personal"></p>
+            </div>
+            <div class="returnedHoro">
+                <h3>Profession</h3>
+                <p id="profession"></p>
+            </div>
+            <div class="returnedHoro">
+                <h3>Travel</h3>
+                <p id="travel"></p>
+            </div>
+            <div class="returnedHoro">
+                <h3>Luck</h3>
+                <p id="luck"></p>
+            </div>
         
         </div>
 
