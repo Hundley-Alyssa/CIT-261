@@ -19,6 +19,7 @@ body{
     font-size: 3.5em;
     padding: 0px;
     margin-bottom: 10px;
+    color: #71b7b7;
 }
 #header p{
     font-family: 'Amatic SC', cursive;
@@ -26,13 +27,27 @@ body{
     padding: 0px;
     margin: 0px;
 }
-#dateDiv {
+#dateDiv{
     width: 100%;
     padding-bottom: 10px;
     text-align: center;
     background-color: #f7e3ea;
     display: none;
+    position: relative;
+    left: -100%;
+    -webkit-animation: slide 1s forwards;
+    -webkit-animation-delay: .3s;
+    animation: slide 1s forwards;
+    animation-delay: .3s;
 }
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
 #dateDiv h2{
     font-family: 'Caveat Brush', cursive;
     font-size: 2em;
@@ -108,6 +123,20 @@ button:hover{
 }
 #horo{
     display: none;
+    position: relative;
+    right: -100%;
+    width: 100%;
+    animation-name: slideHoro;
+    -webkit-animation: slideHoro 1.5s forwards;
+    -webkit-animation-delay: .3s;
+    animation: slideHoro 1.5s forwards;
+    animation-delay: .3s;
+}
+@-webkit-keyframes slideHoro {
+    100% { right: 0; }
+}
+@keyframes slideHoro {
+    100% { right: 0; }
 }
 .returnedHoro{
     background-color:#97d3d3;
@@ -136,5 +165,6 @@ button:hover{
 
 .active, .collapsible:hover {
     background-color: #ee5f83;
+    border-radius:40%;
 }
 

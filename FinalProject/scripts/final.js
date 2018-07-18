@@ -55,6 +55,7 @@ document.getElementById("currentdate").innerHTML = dayOfWeek + ", " + dateNumber
 
 function getHoro() {
     var s = document.getElementById("signs");
+    localStorage.setItem('signName', s.options[s.selectedIndex].value);
     var signName = s.options[s.selectedIndex].value;
     var userId = '602478';
     var apiKey = '1ee1dc3dc21e3ada45d7644d5d5e80b2';
